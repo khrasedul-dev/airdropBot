@@ -1,7 +1,7 @@
 const {Telegraf, Composer , WizardScene , Stage , session} = require("micro-bot")
 const mongoose = require('mongoose')
 
-const bot = new Telegraf('5278936243:AAG_bhe2ar-V6HfT1n7_EktNJRFMXV3RnEk')
+const bot = new Composer()
 
 
 //model
@@ -482,4 +482,6 @@ bot.hears(["💻 Join Airdrop"], ctx=>{
 
 
 
-bot.launch()
+// bot.launch()
+
+module.exports = bot
