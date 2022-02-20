@@ -1,0 +1,66 @@
+const referrId = ctx.startPayload
+
+              if (referrId) {
+          
+                  if (referrId == ctx.from.id) {
+
+                    console.log("cheat")
+
+                  } else {
+
+                    stage.start(ctx)
+
+                  }
+          
+              } else {
+          
+                console.log("not refer")
+          
+              }
+
+
+
+
+
+
+
+                  ctx.telegram.sendMessage(ctx.chat.id , `Hello ${ctx.from.first_name} \nWellcome to our AirdropBot \n\n⚡ Get 0.005 BTC Join Bonus \n👮 Earn 0.002 BTC for each referral \n\nTask: \nJoin our <a href="https://t.me/example_bot">Telegram group</a> \nJoin Our <a href="https://twitter.com/">Twitter</a> \nJoin our <a href="https://facebook.com/">facebook page</a> \nSubscribe our <a href="https://youtube.com/">Youtube channel</a> \nDownload   \nN.B: Please submit be carefully . We are filter your data.` , {
+        reply_markup: {
+            keyboard:[
+                [{text: "💻 Join Airdrop"}]
+            ],
+            resize_keyboard: true
+        },
+        parse_mode: "HTML"
+    })
+
+
+
+
+
+
+
+    const userInfoData = {
+                  name: ctx.scene.session.user.first_name + " " + ctx.scene.session.user.last_name ,
+                  wallet: ctx.scene.session.user.wallet,
+                  balance: 0.5
+              }
+
+              userModel.updateOne({userId: ctx.from.id},userInfoData,(e,data)=>{
+
+                  if (e) {
+                    console.log(e)
+                  }else{
+                    console.log(data)
+                  }
+
+              })
+
+
+
+
+
+
+
+
+          1875958510
