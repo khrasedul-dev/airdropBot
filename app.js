@@ -355,11 +355,13 @@ const userWizard = new WizardScene('user-wizard',
                                     userModel.find({userId: r},(e,d)=>{
 
                                         const b = parseFloat(d[0].balance) 
-                                        const ref_count = parseInt(d[0].referralCount)
+                                        const ref_count = parseInt(d[0].referralCount)+1
+
+                                        
 
                                         const fpc = b + referral_bounus
 
-                                        userModel.updateOne({userId:r},{balance: b + referral_bounus , referralCount: ref_count + 1  } , (e,data)=>{
+                                        userModel.updateOne({userId:r},{balance: b + referral_bounus , referralCount:  ref_count} , (e,data)=>{
                                             if (e) {
                                                 console.log(e)
                                             }
@@ -396,7 +398,8 @@ const userWizard = new WizardScene('user-wizard',
                         userId: ctx.from.id,
                         name: ctx.from.first_name + " " + ctx.from.last_name,
                         wallet: ctx.update.message.text,
-                        balance: join_bonus
+                        balance: join_bonus,
+                        ref_link: "https://t.me/"+ ctx.botInfo.username+"?start="+ctx.from.id
                     })
 
       
