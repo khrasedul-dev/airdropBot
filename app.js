@@ -356,7 +356,7 @@ const userWizard = new WizardScene('user-wizard',
                                     userModel.find({userId: r},(e,d)=>{
 
                                         const b = parseFloat(d[0].balance) 
-                                        const ref_count = d[0].referralCount+1
+                                        const ref_count = parseInt(d[0].referralCount)+1
 
                                         
 
