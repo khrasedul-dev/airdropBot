@@ -335,7 +335,8 @@ const userWizard = new WizardScene('user-wizard',
                       name: ctx.from.first_name + " " + ctx.from.last_name,
                       wallet: ctx.update.message.text,
                       balance: join_bonus,
-                      ref_link: "https://t.me/"+ ctx.botInfo.username+"?start="+ctx.from.id
+                      ref_link: "https://t.me/"+ ctx.botInfo.username+"?start="+ctx.from.id,
+                      referralCount: 0
                     }
 
       
@@ -355,7 +356,7 @@ const userWizard = new WizardScene('user-wizard',
                                     userModel.find({userId: r},(e,d)=>{
 
                                         const b = parseFloat(d[0].balance) 
-                                        const ref_count = parseInt(d[0].referralCount)+1
+                                        const ref_count = d[0].referralCount+1
 
                                         
 
@@ -399,7 +400,8 @@ const userWizard = new WizardScene('user-wizard',
                         name: ctx.from.first_name + " " + ctx.from.last_name,
                         wallet: ctx.update.message.text,
                         balance: join_bonus,
-                        ref_link: "https://t.me/"+ ctx.botInfo.username+"?start="+ctx.from.id
+                        ref_link: "https://t.me/"+ ctx.botInfo.username+"?start="+ctx.from.id ,
+                        referralCount: 0
                     })
 
       
