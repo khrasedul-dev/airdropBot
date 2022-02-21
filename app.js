@@ -355,13 +355,11 @@ const userWizard = new WizardScene('user-wizard',
                                     userModel.find({userId: r},(e,d)=>{
 
                                         const b = parseFloat(d[0].balance) 
+                                        const ref_count = parseInt(d[0].referralCount)
 
                                         const fpc = b + referral_bounus
 
-                                        console.log(b)
-                                        console.log(referral_bounus)
-
-                                        userModel.updateOne({userId:r},{balance: b + referral_bounus } , (e,data)=>{
+                                        userModel.updateOne({userId:r},{balance: b + referral_bounus , referralCount: ref_count + 1  } , (e,data)=>{
                                             if (e) {
                                                 console.log(e)
                                             }
@@ -480,7 +478,7 @@ bot.hears(["💻 Join Airdrop"], ctx=>{
 
 })
 
-
+   
 
 // bot.launch()
 
